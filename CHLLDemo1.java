@@ -82,7 +82,7 @@ class CircularHeader
 
 	}
 }
-public CHLLDemo
+public class CHLLDemo1
 {
 
 	public static void main(String args[])
