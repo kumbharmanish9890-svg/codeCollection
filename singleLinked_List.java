@@ -57,7 +57,7 @@ class singleLinked_List
 		}
 		else
 		{
-			newNode.next = tail;
+			tail.next = newNode;
 			tail = newNode;
 
 		}
@@ -103,6 +103,7 @@ class singleLinked_List
 	public void PrintList()
 	{
 		Node temp = head;
+	
 
 		while(temp != null)
 		{
@@ -112,12 +113,46 @@ class singleLinked_List
 		}
 		System.out.println();
 	}
+	public int getSize()
+	{
+		return size;
+	}
+	public boolean isEmpty()
+	{
+		return head == null;
+	}
+	public int getHead()
+	{
+		if(head == null)
+		{
+			return -1;
+		}else{
+			return head.data;
+		}
+	}
+	public int getTail()
+	{
+		if(tail==null)
+		{
+			return -1;
+		}else{
+			return tail.data;
+		}
+	}
 
 
 	public static void  main(String args[])
 	{
 
 		singleLinked_List l = new singleLinked_List();
+
+		if(l.isEmpty())
+		{
+			System.out.println("List is empty");
+		}
+
+		System.out.println("List of size : " + l.getSize());
+		 
 		l.insertionAtHead(10);
 		l.PrintList();
 
@@ -125,6 +160,27 @@ class singleLinked_List
 		l.PrintList();
 
 		l.insertionAtHead(30);
+		l.PrintList();
+
+		l.insertionAtTail(100);
+		l.PrintList();
+
+		l.insertionAtTail(101);
+		l.PrintList();
+
+		l.insertionAtTail(102);
+		l.PrintList();
+
+		l.insertionAtHead(456);
+		l.PrintList();
+
+		l.insertionAtPosition(1, 88);
+		l.PrintList();
+
+		l.insertionAtPosition(9, 90);
+		l.PrintList();
+
+		l.insertionAtPosition(6, 500);
 		l.PrintList();
 
 	}
