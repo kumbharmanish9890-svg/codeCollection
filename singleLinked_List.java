@@ -140,6 +140,37 @@ class singleLinked_List
 		}
 	}
 
+	public boolean Search(int t)
+	{
+		Node temp = head;
+		while (temp!= null) {
+			if(temp.data == t)	
+			{
+				return true;
+			}else{
+				temp = temp.next;
+			}
+			
+		}
+		return  false;
+	}
+	public int FindPosition(int t)
+	{
+		Node temp = head;
+		int pos = 1;
+		while (temp != null) {
+			if(temp.data == t)
+			{
+				return pos;
+			}else{
+				temp = temp.next;
+				pos++;
+			}
+			
+		}
+		return -1;
+		
+	}
 
 	public static void  main(String args[])
 	{
@@ -182,6 +213,10 @@ class singleLinked_List
 
 		l.insertionAtPosition(6, 500);
 		l.PrintList();
+
+		System.out.println(l.Search(101));
+		System.out.println(l.FindPosition(500));
+		
 
 	}
 }
