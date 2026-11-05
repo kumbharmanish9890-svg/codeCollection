@@ -103,7 +103,7 @@ class singleLinked_List
 	public void PrintList()
 	{
 		Node temp = head;
-	
+
 
 		while(temp != null)
 		{
@@ -171,19 +171,47 @@ class singleLinked_List
 		return -1;
 		
 	}
+    public void updatePos(int position,int newData)
+    {
+        if(position < 1 || position > size)
+            {
+                System.out.println("invalid Position !");
+                return;
+            } 
+        Node t = head;
+        for(int i=1;i<=position -1;i++)
+        {
+            t = t.next;
+        }
+        t.data = newData;
 
+    }
+    public void updateVal(int oldV,int newV)
+    {
+        Node temp = head;
+        while(temp != null)
+        {
+            if(temp.data == oldV)
+            {
+                temp.data = newV;
+            }
+            temp = temp.next;
+
+        }
+
+
+    }
 	public static void  main(String args[])
 	{
-
-		singleLinked_List l = new singleLinked_List();
-
-		if(l.isEmpty())
+		
+        singleLinked_List l = new singleLinked_List();
+      if(l.isEmpty())
 		{
 			System.out.println("List is empty");
 		}
 
 		System.out.println("List of size : " + l.getSize());
-		 
+
 		l.insertionAtHead(10);
 		l.PrintList();
 
@@ -216,7 +244,13 @@ class singleLinked_List
 
 		System.out.println(l.Search(101));
 		System.out.println(l.FindPosition(500));
-		
+
+        l.updatePos(9,56);
+        l.PrintList();
+        
+        
+        l.updateVal(500, 23);
+        l.PrintList();
 
 	}
 }
