@@ -201,6 +201,77 @@ class singleLinked_List
 
 
     }
+    public void delHead()
+    {
+        if(head == null)
+            {
+                System.out.println("List is empty");
+                return;
+            }   
+
+            head = head.next;
+            size--;
+            if(head == null)
+            {
+                tail = null;
+            }
+    
+    }
+    public void delTail()
+    {
+        if(head == null )
+        {
+            System.err.println("list is empty");
+            return;
+        }
+
+        if(head == tail)
+        {
+            head = null;
+            tail = null;
+            size = 0;
+            return;
+        }
+        Node temp = head;
+        for(int i = 1;i<=size-2;i++)
+        {
+            temp = temp.next;
+        }
+        temp.next = null;
+        tail = temp;
+        size --;
+
+    }
+    public void delAtPos(int pos)
+    {
+        if(pos<1 || pos  > size + 1)
+        {
+                System.out.println("Invalid Position");
+                return;
+        }
+        if(pos == 1)
+        {
+            delHead();
+            return;
+        }
+        if(pos == size)
+        {
+            delTail();
+            return;
+        }
+        Node prev = head;
+        for(int i = 1;i<=pos-2;i++)
+        {
+            prev = prev.next;
+        }
+        Node curr = prev.next;
+        Node forward = curr.next;
+
+        prev.next = forward;
+        curr.next = null; 
+
+        size --;
+    }
 	public static void  main(String args[])
 	{
 		
@@ -252,5 +323,20 @@ class singleLinked_List
         l.updateVal(500, 23);
         l.PrintList();
 
+        l.delHead();
+        l.PrintList();
+
+        l.delHead();
+        l.PrintList();
+
+        l.delTail();
+        l.PrintList();
+
+        l.delTail();
+        System.out.println("Size of List "+ l.getSize());
+        l.PrintList();
+
+        l.delAtPos(3);
+        l.PrintList();
 	}
 }
