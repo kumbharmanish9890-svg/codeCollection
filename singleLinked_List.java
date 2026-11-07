@@ -272,6 +272,35 @@ class singleLinked_List
 
         size --;
     }
+	public void delValue(int val)
+	{
+		if(head == null)
+		{
+			System.out.println("list is empty");
+			return;
+		}
+		if(head.data == val)
+		{
+			delHead();
+			return;
+		}
+
+		Node temp = head;
+
+		for(int i = 1;temp.next != null;i++)
+		{
+			if(temp.next.data == val)
+			{
+
+				temp.next = temp.next.next;
+				size --;
+				return;
+			}
+			temp = temp.next;
+
+		}
+		System.out.println("Value Not found");
+	}
 	public static void  main(String args[])
 	{
 		
@@ -338,5 +367,11 @@ class singleLinked_List
 
         l.delAtPos(3);
         l.PrintList();
+
+		l.delValue(30);
+		l.PrintList();
+
+		l.delValue(101);
+		l.PrintList();
 	}
 }
