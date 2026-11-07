@@ -272,35 +272,74 @@ class singleLinked_List
 
         size --;
     }
-	public void delValue(int val)
+	// public void delValue(int val)
+	// {
+	// 	if(head == null)
+	// 	{
+	// 		System.out.println("list is empty");
+	// 		return;
+	// 	}
+	// 	if(head.data == val)
+	// 	{
+	// 		delHead();
+	// 		return;
+	// 	}
+
+	// 	Node temp = head;
+
+	// 	for(int i = 1;temp.next != null;i++)
+	// 	{
+	// 		if(temp.next.data == val)
+	// 		{
+
+	// 			temp.next = temp.next.next;
+	// 			size --;
+	// 			return;
+	// 		}
+	// 		temp = temp.next;
+
+	// 	}
+	// 	System.out.println("Value Not found");
+	// }
+	public boolean deleteValue(int target)
 	{
 		if(head == null)
 		{
-			System.out.println("list is empty");
-			return;
+			System.out.println("List is empty ,cont delete value");
+			return false;
 		}
-		if(head.data == val)
+		if(head.data == target)
 		{
 			delHead();
-			return;
+			return true;
 		}
+		Node prev = head;
+		Node curr = head.next;
 
-		Node temp = head;
+		while (curr != null) {
 
-		for(int i = 1;temp.next != null;i++)
-		{
-			if(temp.next.data == val)
+			if(curr.data == target)
 			{
+				Node forward = curr.next;
 
-				temp.next = temp.next.next;
+				prev.next = forward;
+				curr.next= null;
+
+				if(tail == curr)
+				{
+					tail = prev;
+				}
 				size --;
-				return;
+				return true;
+			}else{
+				prev = prev.next;
+				curr = curr.next;
 			}
-			temp = temp.next;
-
+			
 		}
-		System.out.println("Value Not found");
+		return false;
 	}
+
 	public static void  main(String args[])
 	{
 		
@@ -368,10 +407,16 @@ class singleLinked_List
         l.delAtPos(3);
         l.PrintList();
 
-		l.delValue(30);
+		// l.delValue(30);
+		// l.PrintList();
+
+		// l.delValue(101);
+		// l.PrintList();
+
+		l.deleteValue(30);
 		l.PrintList();
 
-		l.delValue(101);
+		l.deleteValue(23);
 		l.PrintList();
 	}
 }
