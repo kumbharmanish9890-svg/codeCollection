@@ -109,19 +109,58 @@
 		System.out.println();
 
 	}
+	 public void PrintBackward()
+	{
 
-	
+		Node temp = tail;
 
+		while(temp != null)
+		{
+			System.out.print("<-"+temp.data);
+			temp = temp.prev;
+		}
+		System.out.println();
 
+	}
+	public boolean searchLL(int target)
+	{
+		if(head == null)
+		{
+			System.out.println("list is empty");
+			return false;
+		}
+
+		Node temp = head;
+		while(temp != null)
+		{
+			if(temp.data == target)
+			{
+				return true;
+
+			}else
+			{
+				temp = temp.next;
+			}
+		}
+		return false;
+
+	}
 
     public static void main(String args[]){
 
 		DoublyLL obj = new DoublyLL();
 		obj.insertAtHead(90);
 		obj.disp();
+
 		obj.insertAtTail(10);
 		obj.disp();
 		obj.insertAtPosition(2, 400);
+		obj.disp();
+
+		obj.insertAtHead(200);
+		obj.PrintBackward();
+
+		System.out.println(obj.searchLL(400));
 		obj.disp();
 
     }
