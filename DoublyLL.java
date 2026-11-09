@@ -29,13 +29,13 @@
 
 		if(head == null && tail == null)
 		{
-			newNode = head;
-			newNode = tail;
+			 head = newNode;
+			tail = newNode;
 		}else{
 
 			newNode.next = head;
 			head.prev = newNode;
-			newNode = head;
+			head = newNode;
 		}
 		size ++;
 
@@ -58,7 +58,7 @@
 
 	}
 	public void insertAtPosition(int position, int data) {
-	
+
 	if(position < 1 || position > size +1)
 		{
 			System.out.println("invalid Position");
@@ -95,7 +95,7 @@
 		size ++ ;
 
 
-		
+
 	}
 	public void disp()
 	{
@@ -103,19 +103,25 @@
 
 		while(temp != null)
 		{
-			System.out.print(temp + "->");
-			//temp ++;
+			System.out.print(temp.data + "->");
+			temp = temp.next;
 		}
 		System.out.println();
 
 	}
+
+	
 
 
 
     public static void main(String args[]){
 
 		DoublyLL obj = new DoublyLL();
-		obj.insertAtHead(10);
+		obj.insertAtHead(90);
+		obj.disp();
+		obj.insertAtTail(10);
+		obj.disp();
+		obj.insertAtPosition(2, 400);
 		obj.disp();
 
     }
