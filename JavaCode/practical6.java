@@ -1,7 +1,15 @@
-import java.util.*;
+import java.util.function.*;
+
 public class practical6 {
     public static void main(String args[]) {
-        Predicate<Integer> p = n -> n > 10;
-        System.out.println(p.test(20)); // Output: true
+    //    Consumer<String> c = name ->
+    // System.out.println(name);
+
+    // c.accept("Java");
+
+    Supplier<String> s = () -> "Hello Java";
+
+    System.out.println(s.get());
+
     }
 }
