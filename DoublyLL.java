@@ -100,6 +100,11 @@
 	public void disp()
 	{
 		Node temp = head;
+		if(head == null)
+		{
+			System.out.println("List is empty");
+			return;
+		}
 
 		while(temp != null)
 		{
@@ -145,8 +150,110 @@
 		return false;
 
 	}
+	public void updateVal(int oldVal,int newVal)
+	{
 
-    public static void main(String args[]){
+		Node temp = head;
+
+		if(head == null)
+		{
+			System.out.println("list is empty");
+			return;
+		}
+		while(temp != null)
+		{
+			if(temp.data == oldVal)
+			{
+				temp.data = newVal;
+			}else{
+
+				temp = temp.next;
+
+
+			}
+		}
+
+	}
+
+	public void delAtHead()
+	{
+		if(head == null)
+		{
+			System.out.println("list is empty cant detete head");
+			return;
+		}
+		if(head == tail)
+		{
+			head = null;
+			tail = null;
+			return;
+		}
+
+		head = head.next;
+		head.prev = null;
+		size --;
+
+	}
+	public void delAtTail()
+	{
+
+		if(head  == null &&  tail == null)
+		{
+			System.out.println("List is empty can't detele ");
+			return;
+		}
+		if(head == tail)
+		{
+			tail =null;
+			head = null;
+			size = 0;
+			return;
+		}
+
+		tail = tail.prev;
+	 	tail.next = null;
+	 	size --;
+	}
+	public void delAtPos(int pos)
+	{
+		if(pos < 1 || pos > size )
+		{
+			System.out.println("invalid position");
+			return;
+		}
+		if(pos == 1)
+		{
+			delAtHead();
+			return;
+		}
+		if(pos == size)
+		{
+			delAtTail();
+			return;
+		}
+
+		Node currNode = head;
+		//Node temp = head;
+
+		for(int i = 1 ;i<=pos -1;i++)
+		{
+			currNode = currNode.next;
+		}
+
+		Node prevNode = currNode.prev;
+		Node nextNode = currNode.next;
+
+		prevNode.next = nextNode;
+		nextNode.prev = prevNode;
+		currNode.prev = null;
+		currNode.next = null;
+
+		size --;
+	}
+
+
+
+	public static void main(String args[]){
 
 		DoublyLL obj = new DoublyLL();
 		obj.insertAtHead(90);
@@ -161,6 +268,22 @@
 		obj.PrintBackward();
 
 		System.out.println(obj.searchLL(400));
+		obj.disp();
+
+		obj.updateVal(200, 10);
+		obj.disp();
+
+		obj.insertAtHead(400);
+		obj.disp();
+
+
+		obj.updateVal(400, 20);
+		obj.disp();
+
+		obj.delAtHead();
+		obj.disp();
+
+		obj.delAtPos(2);
 		obj.disp();
 
     }
