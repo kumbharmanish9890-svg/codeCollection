@@ -7,9 +7,11 @@ public class practical6 {
 
     // c.accept("Java");
 
-    Supplier<String> s = () -> "Hello Java";
+    // Supplier<String> s = () -> "Hello Java";
 
-    System.out.println(s.get());
+    // System.out.println(s.get());
+
+    
 
     }
 }
