@@ -104,19 +104,107 @@ class single_CircularLink_L
 	{
 
 		Node temp = head;
+		do{
 
-		while(temp != null)
-		{
 			System.out.print(temp.data + "->");
-		//	temp= temp.next;
+			temp = temp.next;
 		}
-		System.out.println();
+
+		while(temp != head);
+		System.out.println("(back to Head)");
+	}
+
+	public int search(int target)
+	{
+
+		Node temp = head;
+
+		if(head == null)
+		{
+			System.out.println("Licked List is empty");
+			return -1;
+		}
+		do
+		{
+			if(temp.data == target)
+			{
+				return 1;
+			}else
+			{
+				temp = temp.next;
+			}
+		}
+		while(temp != head);
+		return -1;
+
+	}
+	public void delAtHead()
+	{
+		if(head == null)
+		{
+			System.out.println("list is empty");
+			return;
+		}
+		if(head == tail)
+		{
+			head.next = null;
+			head = null;
+			tail = null;
+			size = 0;
+			return;
+		}
+
+		head = head.next;
+		tail.next = head;
+		size --;
+	}
+	public void delAtTail()
+	{
+		if(head == null)
+		{
+			System.out.println("Linked List is empty");
+			return;
+		}
+		if(head == tail)
+		{
+			tail = null;
+			head =null;
+			size = 0;
+		}
+		Node temp = head;
+		for(int i = 1;i<=size-2;i++)
+		{
+			temp = temp.next;
+		}
+		temp.next = null;
+		tail = temp;
+		tail.next = head;
+
+		size --;
 	}
 	public static void main(String args[])
 	{
 
-		CircularLink_L list = new CircularLink_L();
+		single_CircularLink_L list = new single_CircularLink_L();
 		list.insertAtHead(34);
+		list.show();
+		list.insertAtHead(88);
+		list.show();
+		list.insertAtTail(200);
+		list.show();
+		list.insertAtTail(988);
+		list.show();
+		list.insertAtPos(5,99);
+		list.show();
+		list.insertAtPos(2,45);
+		list.show();
+		System.out.println(list.search(88));
+		list.show();
+
+		list.delAtHead();
+		list.show();
+
+		list.delAtTail();
 		list.show();
 
 	}
