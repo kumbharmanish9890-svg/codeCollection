@@ -35,6 +35,7 @@ class single_CircularLink_L
 			head = newNode;
 			tail  = newNode;
 			tail.next = head;
+			prev = tail;
 		}else
 		{
 
@@ -184,41 +185,6 @@ class single_CircularLink_L
 	}
 	public void delAtPos(int pos)
 	{
-		if(head == null)
-		{
-			System.out.println("List is empty");
-			return;
-		}
-		if(pos <1 || pos > size)
-		{
-			System.out.println("Invalid Position !");
-			return;
-		}
-		if(pos == 1)
-		{
-			delAtHead();
-			return;
-		}
-		if(pos == size)
-		{
-			delAtTail();
-			return;
-		}
-
-		Node prevNode = head;
-		for(int i = 1 ;i<=pos-2;i++)
-		{
-			prevNode = prevNode.next;
-		}
-
-		Node currNode = prevNode.next;
-		Node nextNode = currNode.next;
-
-		prevNode.next = nextNode;
-
-		currNode.next = null;
-		size --;
-
 
 	}
 	public static void main(String args[])
@@ -240,22 +206,10 @@ class single_CircularLink_L
 		System.out.println(list.search(88));
 		list.show();
 
-		//list.delAtHead();
-		//list.show();
+		list.delAtHead();
+		list.show();
 
 		list.delAtTail();
-		list.show();
-
-
-		list.delAtPos(3);
-		list.show();
-
-		list.insertAtHead(34);
-		list.show();
-		list.insertAtHead(88);
-		list.show();
-
-		list.delAtPos(5);
 		list.show();
 
 	}
