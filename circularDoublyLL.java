@@ -36,6 +36,7 @@ class circularDoublyLL
 			head = newNode;
 			tail = newNode;
 			tail.next = head;
+			head.prev = tail;
 
 		}else{
 
@@ -43,6 +44,7 @@ class circularDoublyLL
 			head.prev = newNode;
 			head = newNode;
 			tail.next = head;
+			head.prev = tail;
 
 		}
 		size ++;
@@ -62,6 +64,7 @@ class circularDoublyLL
 			newNode.prev = tail;
 			tail = newNode;
 			tail.next = head;
+			head.prev = tail;
 		}
 		size ++;
 	}
