@@ -112,6 +112,32 @@ class circularDoublyLL
 		while(temp != head);
 		System.out.println("back to head");
 	}
+	public boolean Search(int target)
+	{
+		if(head == null)
+		{
+			System.out.println("List is empty can't find");
+			return false;
+		}
+		Node temp = head;
+
+		do
+		{
+
+			if(temp.data == target)
+			{
+				return true;
+			}
+			temp = temp.next;
+		}
+		while(temp != head);
+
+		return false;
+	}
+	public void insertVal()
+	{
+
+	}
 
 	public static void main(String args[])
 	{
@@ -133,6 +159,8 @@ class circularDoublyLL
 
 		list.insertAtPos(3,55);
 		list.Print();
+
+		System.out.println(list.Search(100));
 
 
 
