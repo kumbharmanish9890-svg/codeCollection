@@ -114,7 +114,7 @@
 		System.out.println();
 
 	}
-	 public void PrintBackward()
+	public void PrintBackward()
 	{
 
 		Node temp = tail;

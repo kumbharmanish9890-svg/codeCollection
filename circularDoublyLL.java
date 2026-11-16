@@ -137,8 +137,99 @@ class circularDoublyLL
 
 		return false;
 	}
-	public void insertVal()
+	public void insertVal(int oldVal,int newVal)
 	{
+		if(head == null)
+		{
+			System.out.println("List empty !");
+			return;
+		}
+
+		Node temp = head;
+		do
+		{
+			if(temp.data == oldVal)
+			{
+				temp.data = newVal;
+			}
+			temp = temp.next;
+		}
+		while(temp != head);
+
+
+	}
+	public void delAtHead()
+	{
+		if(head == null)
+		{
+			System.out.println("Linked- List is empty");
+			return;
+		}
+		if(head == tail)
+		{
+			head = null;
+			tail = null;
+			size = 0;
+			return;
+		}
+
+		head = head.next ;
+		head.prev = tail;
+		tail.next = head;
+
+		size --;
+	}
+	public void delAtTail()
+	{
+		if(head == null)
+		{
+			System.out.println("List is empty !");
+			return;
+		}
+		if(head == tail)
+		{
+			head = null;
+			tail = null;
+			size = 0;
+			return;
+		}
+
+		tail = tail.prev;
+		tail.next = head;
+		head.prev = tail;
+		size --;
+	}
+	public void delAtPos(int pos)
+	{
+		if(pos < 1 || pos > size)
+		{
+			System.out.println("invalid Position");
+			return;
+		}
+		if(pos == 1)
+		{
+			delAtHead();
+			return;
+		}
+		if(pos == size)
+		{
+			delAtTail();
+			return;
+		}
+
+		Node temp = head;
+
+
+		for(int i = 1;i<=pos-2;i++)
+		{
+			temp = temp.next;
+		}
+
+
+		temp.next = next
+		 nextNode = temp.next.next;
+
+
 
 	}
 
@@ -165,7 +256,14 @@ class circularDoublyLL
 
 		System.out.println(list.Search(100));
 
+		list.insertVal(10,34);
+		list.Print();
 
+		list.delAtHead();
+		list.Print();
+
+		list.delAtTail();
+		list.Print();
 
 	}
 }
