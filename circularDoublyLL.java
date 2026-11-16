@@ -218,7 +218,7 @@ class circularDoublyLL
 		}
 
 		Node temp = head;
-
+		Node nextNode;
 
 		for(int i = 1;i<=pos-2;i++)
 		{
@@ -226,8 +226,14 @@ class circularDoublyLL
 		}
 
 
-		temp.next = next
-		 nextNode = temp.next.next;
+		Node currNode = temp.next;
+
+		nextNode = currNode.next;
+
+		temp.next = nextNode;
+		nextNode.prev = temp;
+
+		size --;
 
 
 
@@ -254,6 +260,9 @@ class circularDoublyLL
 		list.insertAtPos(3,55);
 		list.Print();
 
+		list.delAtPos(3);
+		list.Print();
+
 		System.out.println(list.Search(100));
 
 		list.insertVal(10,34);
@@ -264,6 +273,8 @@ class circularDoublyLL
 
 		list.delAtTail();
 		list.Print();
+
+
 
 	}
 }
