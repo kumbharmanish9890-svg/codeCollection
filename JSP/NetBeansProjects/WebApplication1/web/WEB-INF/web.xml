@@ -12,4 +12,17 @@
         <servlet-name>abc</servlet-name>
         <url-pattern>/add</url-pattern>
     </servlet-mapping>
+    
+    
+    <servlet>
+        <servlet-name>pqr</servlet-name>
+        <servlet-class>com.collection.sqServlet</servlet-class>
+    </servlet>
+    
+    <servlet>
+         
+        <servlet-mapping>pqr</servlet-mapping>
+        <url-pattern>/pqr</url-pattern>
+
+    </servlet>
 </web-app>
