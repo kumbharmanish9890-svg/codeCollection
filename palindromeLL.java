@@ -27,6 +27,39 @@ class palindromeLL
 		}
 		return slow;
 	}
+	public boolean isPalindrome(ListNode head)
+	{
+
+
+		ListNode list2 = getMidPoint(head);
+
+		ListNode temp = head;
+
+		while(temp.next != list2)
+		{
+			temp = temp.next;
+		}
+		temp.next = null;
+
+		ListNode head2 = reverseLL(list2);
+
+		ListNode temp1 = head;
+		ListNode temp2 = head2;
+
+		while(temp1 != null && temp2 != null)
+		{
+			if(temp1.val != temp2.val)
+			{
+
+				return false;
+			}else{
+
+				temp1 = temp1.next;
+				temp2 = temp2.next;
+			}
+		}
+		return true;
+	}
 
 	public ListNode reverseLL(ListNode head)
 	{
@@ -45,18 +78,25 @@ class palindromeLL
 	}
 	public static void main(String args[])
 	{
-		palindromeLL head = new palindromeLL(1);
-		head.next = new palindromeLL(2);
-		head.next.next = new palindromeLL(6);
-		head.next.next.next = new palindromeLL(2);
-		head.next.next.next.next = new palindromeLL(1);
+		ListNode head = new ListNode(1);
+		head.next = new ListNode(2);
+		head.next.next = new ListNode(6);
+		head.next.next.next = new ListNode(6);
+		head.next.next.next.next = new ListNode(2);
+		head.next.next.next.next.next = new ListNode(1);
 
 		ListNode temp = head;
 
 		while(temp != null)
 		{
-			System.out.println(temp.val + "->");
+			System.out.print(temp.val + "->");
 			temp = temp.next;
 		}
+		System.out.println();
+
+
+		palindromeLL obj = new palindromeLL();
+
+		System.out.println("List is Palindrome = " + obj.isPalindrome(head));
 	}
 }
