@@ -27,6 +27,29 @@ public class CFArrList {
 
 		System.out.println(list.contains(88));
 
+
+		list.add(67);
+		list.add(677);
+		list.add(7);
+
+		System.out.println(list);
+
+		Collections.sort(list);
+
+		System.out.println(list);
+
+		ArrayList<Integer> newList =(ArrayList<Integer>)list.clone();
+
+		System.out.println(newList);
+
+		ArrayList<Integer> marks = new ArrayList<>();
+		marks.ensureCapacity(55);
+
+		System.out.println(marks.isEmpty());
+
+		System.out.println(list.indexOf(100));
+
+
 	}
 
 
