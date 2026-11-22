@@ -77,12 +77,28 @@ public class CFArrList {
 		ll.offer(400);
 		System.out.println(ll);
 
-
-
 		System.out.println(ll.lastIndexOf(400));
 
 
+		System.out.println("****** Stack ******");
 
+		Stack<Integer> stc = new Stack<>();
+
+		stc.push(20);
+		stc.push(45);
+		stc.push(68);
+
+		System.out.println(stc);
+
+		//stc.pop();
+
+		System.out.println(stc);
+
+		System.out.println(stc.peek());
+
+		System.out.println(stc.search(20));
+
+		System.out.println(stc.empty());
 	}
 
 
