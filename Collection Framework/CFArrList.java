@@ -50,6 +50,39 @@ public class CFArrList {
 		System.out.println(list.indexOf(100));
 
 
+		System.out.println("****** Linked List *******");
+		LinkedList<Integer> ll = new LinkedList<>();
+
+		ll.add(34);
+		ll.addFirst(10);
+		ll.addLast(35);
+		System.out.println(ll);
+
+		System.out.println(ll.getFirst());
+		System.out.println(ll.getLast());
+
+		//ll.removeFirst();
+		System.out.println(ll);
+
+		//ll.removeLast();
+		System.out.println(ll);
+
+		ll.add(45);
+
+		System.out.println(ll.peek());
+
+		System.out.println(ll.poll());
+		System.out.println(ll);
+
+		ll.offer(400);
+		System.out.println(ll);
+
+
+
+		System.out.println(ll.lastIndexOf(400));
+
+
+
 	}
 
 
